@@ -70,6 +70,8 @@ flutter:
   assets:
     - assets/images/logo.png
     - assets/images/fondo.png
+    - assets/images/event1.png
+    - assets/images/event2.png
     - assets/icons/google_logo.png
     - assets/icons/calentamiento.png
     - assets/icons/resistencia.png

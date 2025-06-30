@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BoxerEvents extends StatelessWidget {
   const BoxerEvents({super.key});
@@ -36,36 +37,41 @@ class BoxerEvents extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             Expanded(
-              child: Stack(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    alignment: Alignment.center,
-                    child: const Text(
-                      'Ver eventos',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  Positioned(
-                    top: 4,
-                    right: 4,
-                    child: Container(
-                      padding: const EdgeInsets.all(4),
-                      decoration: const BoxDecoration(
-                        color: Colors.red,
-                        shape: BoxShape.circle,
+              child: GestureDetector(
+                onTap: () {
+                  context.push('/boxer-events-detail');
+                },
+                child: Stack(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(8),
                       ),
+                      alignment: Alignment.center,
                       child: const Text(
-                        '1',
-                        style: TextStyle(color: Colors.white, fontSize: 10),
+                        'Ver eventos',
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
-                  ),
-                ],
+                    Positioned(
+                      top: 4,
+                      right: 4,
+                      child: Container(
+                        padding: const EdgeInsets.all(4),
+                        decoration: const BoxDecoration(
+                          color: Colors.red,
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Text(
+                          '1',
+                          style: TextStyle(color: Colors.white, fontSize: 10),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
