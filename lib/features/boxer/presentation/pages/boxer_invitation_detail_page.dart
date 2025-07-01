@@ -1,7 +1,6 @@
 import 'package:capbox/features/boxer/presentation/widgets/boxer_header.dart';
 import 'package:capbox/features/boxer/presentation/widgets/boxer_invitation_card.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class BoxerInvitationDetailPage extends StatelessWidget {
   const BoxerInvitationDetailPage({super.key});
@@ -10,6 +9,26 @@ class BoxerInvitationDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.black,
+        selectedItemColor: Colors.red,
+        unselectedItemColor: Colors.white,
+        currentIndex: 1, 
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.history),
+            label: 'Historial',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Inicio',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Perfil',
+          ),
+        ],
+      ),
       body: Stack(
         children: [
           Image.asset(
@@ -25,7 +44,7 @@ class BoxerInvitationDetailPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const BoxerHeader(), // ✅ Reutilizamos el header correcto
+                  const BoxerHeader(),
                   const SizedBox(height: 16),
                   const Text(
                     'Eventos para ti',
