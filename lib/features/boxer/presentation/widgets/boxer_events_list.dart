@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BoxerEventsList extends StatelessWidget {
   const BoxerEventsList({super.key});
@@ -101,8 +102,14 @@ class BoxerEventsList extends StatelessWidget {
             if (showCancel && showPending) const SizedBox(width: 8),
             if (showPending)
               _buildButton('Pago pendiente', const Color(0xFFAD9C00)),
+            // dentro del _buildEventCard (solo el botón)
             if (isInvitation)
-              _buildButton('Ver invitación', const Color(0xFF0076AD)),
+              GestureDetector(
+                onTap: () {
+                  context.push('/invitation-detail');
+                },
+                child: _buildButton('Ver invitación', const Color(0xFF0076AD)),
+              ),
           ],
         ),
       ],
