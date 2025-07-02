@@ -71,6 +71,8 @@ flutter:
     - assets/images/logo.png
     - assets/images/fondo.png
     - assets/images/event1.png
+    - assets/images/boxer.png
+    - assets/images/boxer_sample.png
     - assets/images/event2.png
     - assets/icons/google_logo.png
     - assets/icons/calentamiento.png

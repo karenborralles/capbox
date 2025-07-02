@@ -1,35 +1,28 @@
+import 'package:capbox/features/boxer/presentation/pages/boxer_ficha_tecnica_page.dart';
+import 'package:go_router/go_router.dart';
 import 'package:capbox/features/auth/presentation/pages/login_page.dart';
 import 'package:capbox/features/auth/presentation/pages/register_page.dart';
-import 'package:capbox/features/boxer/domain/entities/boxer_home_data.dart';
+import 'package:capbox/features/boxer/presentation/pages/boxer_home_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_events_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_invitation_detail_page.dart';
-import 'package:go_router/go_router.dart';
+import 'package:capbox/features/boxer/presentation/pages/boxer_profile_page.dart';
+import 'package:capbox/features/boxer/presentation/pages/boxer_history_page.dart';
 
 final GoRouter appRouter = GoRouter(
+  debugLogDiagnostics: true,   // ← para ver los logs de navegación
   routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => const LoginPage(),
-    ),
-    GoRoute(
-      path: '/register',
-      builder: (context, state) => const RegisterPage(),
-    ),
-    GoRoute(
-      path: '/boxer-home',
-      builder: (context, state) => const BoxerHomePage(),
-    ),
-    GoRoute(
-      path: '/boxer-events-detail',
-      builder: (context, state) => const BoxerEventsPage(),
-    ),
-    GoRoute(
-      path: '/invitation-detail',
-      builder: (context, state) => const BoxerInvitationDetailPage(),
-    ),
-    GoRoute(
-      path: '/boxer-events',
-      builder: (context, state) => const BoxerEventsPage(),
-    ),
+    GoRoute(path: '/',              builder: (_, __) => const LoginPage()),
+    GoRoute(path: '/register',      builder: (_, __) => const RegisterPage()),
+    GoRoute(path: '/boxer-home',    builder: (_, __) => const BoxerHomePage()),
+    GoRoute(path: '/boxer-events',  builder: (_, __) => const BoxerEventsPage()),
+    GoRoute(path: '/boxer-events-detail',
+            builder: (_, __) => const BoxerEventsPage()),
+    GoRoute(path: '/invitation-detail',
+            builder: (_, __) => const BoxerInvitationDetailPage()),
+    GoRoute(path: '/perfil',    builder: (_, __) => const BoxerProfilePage()),
+    GoRoute(path: '/historial', builder: (_, __) => const BoxerHistoryPage()),
+    GoRoute(  path: '/ficha-tecnica',  builder: (context, state) => const BoxerFichaTecnicaPage(), 
+),
+
   ],
 );

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../widgets/boxer_header.dart';
 import '../widgets/boxer_events_list.dart';
 
+
+//BORRAR
 class BoxerEventsPage extends StatelessWidget {
   const BoxerEventsPage({super.key});
 
