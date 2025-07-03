@@ -6,7 +6,7 @@ class BoxerNavBar extends StatelessWidget {
   const BoxerNavBar({super.key, required this.currentIndex});
 
   void _onTap(BuildContext ctx, int index) {
-    if (index == currentIndex) return;   // evita navegar a la misma ruta
+    if (index == currentIndex) return;   
 
     switch (index) {
       case 0: ctx.go('/historial');   break;

@@ -22,7 +22,6 @@ class BoxerHomePage extends StatelessWidget {
           ),
           Container(color: Colors.black.withOpacity(.6)),
 
-          // ---------- CONTENIDO ----------
           SafeArea(
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -34,8 +33,7 @@ class BoxerHomePage extends StatelessWidget {
                   BoxerStreakGoals(),
                   SizedBox(height: 16),
                   BoxerExercises(),
-                  // 👇  quitamos BoxerEvents y el SizedBox que separaba
-                  SizedBox(height: 40),   // margen final opcional
+                  SizedBox(height: 40),   
                 ],
               ),
             ),

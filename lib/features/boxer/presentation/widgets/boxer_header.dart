@@ -18,7 +18,6 @@ class BoxerHeader extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 46, bottom: 11), 
-              // 👆 bottom positivo lo sube, ajusta el valor según lo que veas bien
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [

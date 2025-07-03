@@ -15,13 +15,13 @@ class CapBoxApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<Dio>(create: (_) => Dio()),
-        ...authProviders,          // tus providers de Auth
+        ...authProviders,          
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: 'CapBox',
-        routerConfig: appRouter,   // GoRouter
-        theme: ThemeData.dark(),   // opcional
+        routerConfig: appRouter,   
+        theme: ThemeData.dark(),   
       ),
     );
   }

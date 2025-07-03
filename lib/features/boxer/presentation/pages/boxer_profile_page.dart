@@ -1,7 +1,6 @@
-// lib/features/boxer/presentation/pages/boxer_profile_page.dart
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../widgets/boxer_header.dart';         
+import '../widgets/boxer_header.dart';
 import '../widgets/boxer_navbar.dart';
 
 class BoxerProfilePage extends StatelessWidget {
@@ -42,20 +41,33 @@ class BoxerProfilePage extends StatelessWidget {
                   const SizedBox(height: 20),
                   Row(
                     children: [
-                      Expanded(child: _pillButton('5 días de racha', [Color(0xFF701300), Color(0xFF121212)])),
+                      Expanded(
+                        child: _pillButton(
+                          '5 días de racha',
+                          [Color(0xFF701300), Color(0xFF121212)],
+                        ),
+                      ),
                       const SizedBox(width: 12),
                       Expanded(
                         child: GestureDetector(
                           onTap: () {
                             context.go('/ficha-tecnica');
                           },
-                          child: _pillButton('Ver ficha técnica', [Color(0xFF0478AE), Color(0xFF023E5C)]),
+                          child: _pillButton(
+                            'Ver ficha técnica',
+                            [Color(0xFF0478AE), Color(0xFF023E5C)],
+                          ),
                         ),
                       ),
                     ],
                   ),
                   const SizedBox(height: 28),
-                  _bigAction('Ver métricas de rendimiento'),
+                  GestureDetector(
+                    onTap: () {
+                      context.go('/metrics'); 
+                    },
+                    child: _bigAction('Ver métricas de rendimiento'),
+                  ),
                   const SizedBox(height: 16),
                   _bigAction('Historial de peleas'),
                   const SizedBox(height: 32),
@@ -89,15 +101,13 @@ class BoxerProfilePage extends StatelessWidget {
                           fontWeight: FontWeight.w700,
                           fontSize: 15)),
                   Text('Algortmico Jimenez',
-                      style:
-                          TextStyle(color: Colors.white70, fontSize: 13)),
+                      style: TextStyle(color: Colors.white70, fontSize: 13)),
                   SizedBox(height: 4),
                   Text('Principiante',
                       style: TextStyle(color: Colors.red, fontSize: 13)),
                   SizedBox(height: 8),
                   Text('20 años │ 70 kg │ 1.70 m',
-                      style:
-                          TextStyle(color: Colors.white70, fontSize: 12)),
+                      style: TextStyle(color: Colors.white70, fontSize: 12)),
                 ],
               ),
             ),
@@ -145,7 +155,7 @@ class BoxerProfilePage extends StatelessWidget {
   Widget _bigAction(String text) => Container(
         padding: const EdgeInsets.symmetric(vertical: 18),
         decoration: BoxDecoration(
-          color: Colors.grey.withOpacity(0.4),  // 🟢 Mismo color que tus exercise cards
+          color: Colors.grey.withOpacity(0.4),
           borderRadius: BorderRadius.circular(14),
         ),
         alignment: Alignment.center,
