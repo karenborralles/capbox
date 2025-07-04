@@ -4,6 +4,7 @@ import '../widgets/boxer_navbar.dart';
 import '../widgets/boxer_metrics_chart.dart';
 import '../widgets/boxer_metrics_list.dart';
 import '../widgets/boxer_metrics_detailed_chart.dart';
+import '../widgets/boxer_metrics_detailed_list.dart'; 
 
 class BoxerMetricsPage extends StatefulWidget {
   const BoxerMetricsPage({super.key});
@@ -13,8 +14,8 @@ class BoxerMetricsPage extends StatefulWidget {
 }
 
 class _BoxerMetricsPageState extends State<BoxerMetricsPage> {
-  bool showChart = true;       // Gráfica azul
-  bool showDetailed = false;   // Gráfica roja
+  bool showChart = true;
+  bool showDetailed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -85,24 +86,13 @@ class _BoxerMetricsPageState extends State<BoxerMetricsPage> {
                   GestureDetector(
                     onTap: () {
                       setState(() {
-                        if (!showDetailed) {
-                          showDetailed = true;
-                        } else {
-                          // Si ya está en detallado, regresa al gráfico azul
-                          showDetailed = false;
-                          showChart = true;
-                        }
+                        showDetailed = !showDetailed;
                       });
                     },
                     child: _bigAction(showDetailed ? 'Ver vista general' : 'Ver vista detallada'),
                   ),
                   const SizedBox(height: 16),
-                  if (!showChart)
-                    const BoxerMetricsList()
-                  else if (showDetailed)
-                    const BoxerMetricsDetailedChart()
-                  else
-                    const BoxerMetricsChart(),
+                  _buildContent(),
                 ],
               ),
             ),
@@ -110,6 +100,26 @@ class _BoxerMetricsPageState extends State<BoxerMetricsPage> {
         ],
       ),
     );
+  }
+
+  Widget _buildContent() {
+    if (showDetailed) {
+      if (showChart) {
+        // gráfica roja
+        return const BoxerMetricsDetailedChart();
+      } else {
+        // tabla detallada 
+        return const BoxerMetricsDetailedList();
+      }
+    } else {
+      if (showChart) {
+        // gráfica azul
+        return const BoxerMetricsChart();
+      } else {
+        // lista simple
+        return const BoxerMetricsList();
+      }
+    }
   }
 
   Widget _studentCard() => Container(
