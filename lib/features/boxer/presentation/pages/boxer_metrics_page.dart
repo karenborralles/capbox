@@ -13,8 +13,8 @@ class BoxerMetricsPage extends StatefulWidget {
 }
 
 class _BoxerMetricsPageState extends State<BoxerMetricsPage> {
-  bool showChart = true;
-  bool showDetailed = false;
+  bool showChart = true;       // Gráfica azul
+  bool showDetailed = false;   // Gráfica roja
 
   @override
   Widget build(BuildContext context) {
@@ -85,18 +85,24 @@ class _BoxerMetricsPageState extends State<BoxerMetricsPage> {
                   GestureDetector(
                     onTap: () {
                       setState(() {
-                        showDetailed = true;
+                        if (!showDetailed) {
+                          showDetailed = true;
+                        } else {
+                          // Si ya está en detallado, regresa al gráfico azul
+                          showDetailed = false;
+                          showChart = true;
+                        }
                       });
                     },
                     child: _bigAction(showDetailed ? 'Ver vista general' : 'Ver vista detallada'),
                   ),
                   const SizedBox(height: 16),
-                  if (showDetailed)
+                  if (!showChart)
+                    const BoxerMetricsList()
+                  else if (showDetailed)
                     const BoxerMetricsDetailedChart()
-                  else if (showChart)
-                    const BoxerMetricsChart()
                   else
-                    const BoxerMetricsList(),
+                    const BoxerMetricsChart(),
                 ],
               ),
             ),
