@@ -51,7 +51,7 @@ class BoxerFichaTecnicaPage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.4),
+        color: Colors.white.withOpacity(0.08), 
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -89,45 +89,78 @@ class BoxerFichaTecnicaPage extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 8),
-          _infoRow('Edad:', '16 años'),
-          _infoRow('Peso:', '60kg'),
-          _infoRow('Estatura:', '1.65 m'),
-          _infoRow('Peleas:', '25'),
-          _infoRow('Victorias:', '20'),
+          const SizedBox(height: 10),
+
+          // Primera fila: Edad y Peso
+          _infoRowDual('Edad:', '16 años', 'Peso:', '60kg'),
+
+          // Segunda fila: Estatura y Peleas
+          _infoRowDual('Estatura:', '1.65 m', 'Peleas:', '25'),
+
+          // Tercera fila: Victorias
+          _infoRowSingle('Victorias:', '20'),
+
           const Divider(color: Colors.white24),
-          _infoRow('Nivel:', 'Principiante'),
-          _infoRow('Guardia:', 'Derecha'),
+
+          // Nivel y Guardia
+          _infoRowDual('Nivel:', 'Principiante', 'Guardia:', 'Derecha'),
+
           const Divider(color: Colors.white24),
-          _infoRow('Gimnasio:', 'Zikar Palenque de campeones'),
-          _infoRow('Entrenador:', 'Fernando Dinamita'),
+
+          // Gimnasio y Entrenador
+          _infoRowSingle('Gimnasio:', 'Zikar Palenque de campeones'),
+          _infoRowSingle('Entrenador:', 'Fernando Dinamita'),
         ],
       ),
     );
   }
 
-  Widget _infoRow(String label, String value) {
+  Widget _infoRowDual(String label1, String value1, String label2, String value2) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 3),
-      child: RichText(
-        textAlign: TextAlign.center,
-        text: TextSpan(
-          children: [
-            TextSpan(
-              text: '$label ',
-              style: const TextStyle(
-                color: Colors.red,
-                fontWeight: FontWeight.w500,
-              ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          _infoText(label1, value1),
+          const SizedBox(width: 20),
+          _infoText(label2, value2),
+        ],
+      ),
+    );
+  }
+
+  Widget _infoRowSingle(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 3),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          _infoText(label, value),
+        ],
+      ),
+    );
+  }
+
+  Widget _infoText(String label, String value) {
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: '$label ',
+            style: const TextStyle(
+              color: Colors.red,
+              fontWeight: FontWeight.w500,
+              fontSize: 14,
             ),
-            TextSpan(
-              text: value,
-              style: const TextStyle(
-                color: Colors.white,
-              ),
+          ),
+          TextSpan(
+            text: value,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 14,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
