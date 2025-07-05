@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart'; 
 
 class BoxerExercises extends StatelessWidget {
   const BoxerExercises({super.key});
@@ -10,8 +11,14 @@ class BoxerExercises extends StatelessWidget {
       children: [
         const Row(
           children: [
-            Text('Ejercicios de hoy',
-                style: TextStyle(color: Colors.white, fontSize: 21, fontWeight: FontWeight.bold)),
+            Text(
+              'Ejercicios de hoy',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 21,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             Spacer(),
             Icon(Icons.timer, color: Colors.white, size: 17),
             SizedBox(width: 4),
@@ -32,13 +39,20 @@ class BoxerExercises extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            const Text('Iniciar entrenamiento',
-                style: TextStyle(color: Colors.white, fontSize: 16)),
+            const Text(
+              'Iniciar entrenamiento',
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
             const SizedBox(width: 8),
-            CircleAvatar(
-              backgroundColor: Colors.green,
-              child: const Icon(Icons.play_arrow, color: Colors.white),
-            )
+            GestureDetector(
+              onTap: () {
+                context.go('/timer'); 
+              },
+              child: const CircleAvatar(
+                backgroundColor: Colors.green,
+                child: Icon(Icons.play_arrow, color: Colors.white),
+              ),
+            ),
           ],
         )
       ],
@@ -57,8 +71,10 @@ class BoxerExercises extends StatelessWidget {
           Image.asset(iconPath, height: 30),
           const SizedBox(width: 8),
           Expanded(
-            child: Text(title,
-                style: const TextStyle(color: Colors.white, fontSize: 18)),
+            child: Text(
+              title,
+              style: const TextStyle(color: Colors.white, fontSize: 18),
+            ),
           ),
           const Icon(Icons.timer, color: Colors.white, size: 17),
           const SizedBox(width: 4),

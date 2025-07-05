@@ -1,5 +1,6 @@
 import 'package:capbox/features/boxer/presentation/pages/boxer_ficha_tecnica_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_metrics_page.dart';
+import 'package:capbox/features/boxer/presentation/pages/boxer_timer_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:capbox/features/auth/presentation/pages/login_page.dart';
 import 'package:capbox/features/auth/presentation/pages/register_page.dart';
@@ -22,6 +23,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(path: '/historial', builder: (_, __) => const BoxerHistoryPage()),
     GoRoute(path: '/ficha-tecnica', builder: (_, __) => const BoxerFichaTecnicaPage()),
     GoRoute(path: '/metrics', builder: (_, __) => const BoxerMetricsPage()),
+    GoRoute(
+      path: '/timer',
+      builder: (_, __) => const BoxerTimerPage(),
+    ),
   ],
 );
 
