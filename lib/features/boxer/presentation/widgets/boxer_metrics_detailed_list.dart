@@ -17,41 +17,90 @@ class BoxerMetricsDetailedList extends StatelessWidget {
     ];
 
     return Column(
-      children: data.map((item) => _metricRow(
-        item['prueba'],
-        item['resultado'],
-        item['calificacion'],
-      )).toList(),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 8.0),
+          child: Row(
+            children: const [
+              Expanded(
+                flex: 3,
+                child: Text(
+                  'Prueba',
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 2,
+                child: Text(
+                  'Resultado',
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Text(
+                'Calificación',
+                style: TextStyle(
+                  color: Colors.white70,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 6),
+        ...data.map((item) => _metricRow(
+              item['prueba'],
+              item['resultado'],
+              item['calificacion'],
+            )),
+      ],
     );
   }
 
   Widget _metricRow(String prueba, String resultado, int calificacion) {
     Color color = _getColor(calificacion);
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
-      decoration: BoxDecoration(
-        color: Colors.grey.withOpacity(0.3),
-        borderRadius: BorderRadius.circular(12),
-      ),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
       child: Row(
         children: [
           Expanded(
             flex: 3,
-            child: Text(
-              prueba,
-              style: const TextStyle(color: Colors.white, fontSize: 14),
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+              decoration: BoxDecoration(
+                color: Colors.grey.withOpacity(0.3),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Text(
+                prueba,
+                style: const TextStyle(color: Colors.white, fontSize: 14),
+              ),
             ),
           ),
+          const SizedBox(width: 6),
           Expanded(
             flex: 2,
-            child: Text(
-              resultado,
-              style: const TextStyle(color: Colors.white70, fontSize: 14),
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+              decoration: BoxDecoration(
+                color: Colors.grey.withOpacity(0.3),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Text(
+                resultado,
+                style: const TextStyle(color: Colors.white70, fontSize: 14),
+              ),
             ),
           ),
+          const SizedBox(width: 6),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
             decoration: BoxDecoration(
               color: color,
               borderRadius: BorderRadius.circular(8),
