@@ -19,7 +19,7 @@ class BoxerProfilePage extends StatelessWidget {
             height: double.infinity,
             fit: BoxFit.cover,
           ),
-          Container(color: Colors.black.withOpacity(.6)),
+          Container(color: Colors.black.withOpacity(0.6)),
           SafeArea(
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -27,50 +27,31 @@ class BoxerProfilePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const BoxerHeader(),
-                  const SizedBox(height: 18),
-                  const Text(
-                    'Perfil de alumno',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 16),
                   _studentCard(),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 16),
                   Row(
                     children: [
-                      Expanded(
-                        child: _pillButton(
-                          '5 días de racha',
-                          [Color(0xFF701300), Color(0xFF121212)],
-                        ),
-                      ),
+                      Expanded(child: _streakButton('5 días de racha')),
                       const SizedBox(width: 12),
                       Expanded(
                         child: GestureDetector(
-                          onTap: () {
-                            context.go('/ficha-tecnica');
-                          },
-                          child: _pillButton(
-                            'Ver ficha técnica',
-                            [Color(0xFF0478AE), Color(0xFF023E5C)],
-                          ),
+                          onTap: () => context.go('/ficha-tecnica'),
+                          child: _actionButton('Ver ficha tecnica'),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 28),
+                  const SizedBox(height: 16),
                   GestureDetector(
-                    onTap: () {
-                      context.go('/metrics'); 
-                    },
+                    onTap: () => context.go('/metrics'),
                     child: _bigAction('Ver métricas de rendimiento'),
                   ),
-                  const SizedBox(height: 16),
-                  _bigAction('Historial de peleas'),
-                  const SizedBox(height: 32),
+                  const SizedBox(height: 12),
+                  GestureDetector(
+                    onTap: () => context.go('/historial'),
+                    child: _bigAction('Historial de peleas'),
+                  ),
                 ],
               ),
             ),
@@ -83,59 +64,58 @@ class BoxerProfilePage extends StatelessWidget {
   Widget _studentCard() => Container(
         padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(.05),
+          color: Colors.white.withOpacity(0.05),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _avatarBig(),
-            const SizedBox(width: 14),
+            Container(
+              width: 70,
+              height: 70,
+              decoration: BoxDecoration(
+                color: const Color(0xFFC31A7B),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              alignment: Alignment.center,
+              child: const Text(
+                'J',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const SizedBox(width: 12),
             const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Juan  Jimenez',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 15)),
-                  Text('Algortmico Jimenez',
-                      style: TextStyle(color: Colors.white70, fontSize: 13)),
-                  SizedBox(height: 4),
-                  Text('Principiante',
-                      style: TextStyle(color: Colors.red, fontSize: 13)),
-                  SizedBox(height: 8),
-                  Text('20 años │ 70 kg │ 1.70 m',
-                      style: TextStyle(color: Colors.white70, fontSize: 12)),
+                  Text(
+                    'Juan Jimenez',
+                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 14),
+                  ),
+                  Text(
+                    'Principiante',
+                    style: TextStyle(color: Colors.red, fontSize: 12),
+                  ),
+                  Text(
+                    '20 años │ 70 kg │ 1.70m',
+                    style: TextStyle(color: Colors.white70, fontSize: 12),
+                  ),
                 ],
               ),
-            ),
+            )
           ],
         ),
       );
 
-  Widget _avatarBig() => Container(
-        width: 96,
-        height: 96,
-        decoration: BoxDecoration(
-          color: const Color(0xFFC31A7B),
-          borderRadius: BorderRadius.circular(16),
-        ),
-        alignment: Alignment.center,
-        child: const Text('J',
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: 48,
-                fontWeight: FontWeight.bold)),
-      );
-
-  Widget _pillButton(String text, List<Color> gradientColors) {
+  Widget _streakButton(String text) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 14),
+      padding: const EdgeInsets.symmetric(vertical: 12),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: gradientColors,
+        gradient: const LinearGradient(
+          colors: [Color(0xFFB71C1C), Color(0xFF880E4F)],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),
@@ -144,27 +124,46 @@ class BoxerProfilePage extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         text,
-        style: const TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.w600,
-        ),
+        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 14),
       ),
     );
   }
 
-  Widget _bigAction(String text) => Container(
-        padding: const EdgeInsets.symmetric(vertical: 18),
-        decoration: BoxDecoration(
-          color: Colors.grey.withOpacity(0.4),
-          borderRadius: BorderRadius.circular(14),
+  Widget _actionButton(String text) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [Color(0xFF0277BD), Color(0xFF01579B)],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
         ),
-        alignment: Alignment.center,
-        child: Text(
-          text,
-          style: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w500,
-          ),
+        borderRadius: BorderRadius.circular(14),
+      ),
+      alignment: Alignment.center,
+      child: Text(
+        text,
+        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 14),
+      ),
+    );
+  }
+
+  Widget _bigAction(String text) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 14),
+      decoration: BoxDecoration(
+        color: Colors.grey.withOpacity(0.4),
+        borderRadius: BorderRadius.circular(14),
+      ),
+      alignment: Alignment.center,
+      child: Text(
+        text,
+        style: const TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.w500,
+          fontSize: 14,
         ),
-      );
+      ),
+    );
+  }
 }
