@@ -5,14 +5,14 @@ class BoxerTimerHeader extends StatelessWidget {
   final bool isRunning;
   final int remainingSeconds;
   final VoidCallback onToggle;
-  final String? sessionTitle; // NUEVO
+  final String? sessionTitle;
 
   const BoxerTimerHeader({
     super.key,
     required this.isRunning,
     required this.remainingSeconds,
     required this.onToggle,
-    this.sessionTitle, // NUEVO
+    this.sessionTitle, 
   });
 
   String _formatTime(int seconds) {
@@ -57,7 +57,7 @@ class BoxerTimerHeader extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 24),
-        if (sessionTitle != null) // Mostrar solo si se recibe
+        if (sessionTitle != null) 
           Text(
             sessionTitle!,
             style: const TextStyle(color: Colors.white, fontSize: 17),

@@ -6,21 +6,18 @@ import '../widgets/boxer_timer_header.dart';
 import '../widgets/boxer_timer_table.dart';
 import '../widgets/boxer_timer_actions.dart';
 
-class BoxerTimerPage extends StatefulWidget {
-  final int durationSeconds;
-
-  const BoxerTimerPage({super.key, this.durationSeconds = 90});
+class BoxerTechniquePage extends StatefulWidget {
+  const BoxerTechniquePage({super.key});
 
   @override
-  State<BoxerTimerPage> createState() => _BoxerTimerPageState();
+  State<BoxerTechniquePage> createState() => _BoxerTechniquePageState();
 }
 
-class _BoxerTimerPageState extends State<BoxerTimerPage> {
+class _BoxerTechniquePageState extends State<BoxerTechniquePage> {
   final List<Map<String, String>> exercises = [
-    {'name': 'Movimientos de hombro', 'count': '30'},
-    {'name': 'Movimientos de cabeza', 'count': '30'},
-    {'name': 'Estiramientos de brazos', 'count': '30'},
-    {'name': 'Movimientos de pies', 'count': '1min'},
+    {'name': 'Saco pesado', 'count': '4 rounds'},
+    {'name': 'Manoplas', 'count': '5 minutos'},
+    {'name': 'Reflejos', 'count': '10 minutos'},
   ];
 
   late int remainingSeconds;
@@ -30,7 +27,7 @@ class _BoxerTimerPageState extends State<BoxerTimerPage> {
   @override
   void initState() {
     super.initState();
-    remainingSeconds = widget.durationSeconds;
+    remainingSeconds = 85; 
   }
 
   @override
@@ -49,28 +46,20 @@ class _BoxerTimerPageState extends State<BoxerTimerPage> {
 
   void _startTimer() {
     _timer?.cancel();
-    setState(() {
-      _isRunning = true;
-    });
+    setState(() => _isRunning = true);
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (remainingSeconds > 0) {
-        setState(() {
-          remainingSeconds--;
-        });
+        setState(() => remainingSeconds--);
       } else {
         timer.cancel();
-        setState(() {
-          _isRunning = false;
-        });
+        setState(() => _isRunning = false);
       }
     });
   }
 
   void _pauseTimer() {
     _timer?.cancel();
-    setState(() {
-      _isRunning = false;
-    });
+    setState(() => _isRunning = false);
   }
 
   @override
@@ -95,15 +84,16 @@ class _BoxerTimerPageState extends State<BoxerTimerPage> {
                   isRunning: _isRunning,
                   remainingSeconds: remainingSeconds,
                   onToggle: _toggleTimer,
-                  sessionTitle: 'SESIÓN DE CALENTAMIENTO', 
+                  sessionTitle: 'SESIÓN DE TÉCNICA',
                 ),
                 const SizedBox(height: 24),
                 BoxerTimerTable(exercises: exercises),
                 const SizedBox(height: 24),
                 BoxerTimerActions(
                   onRetirarse: () => context.go('/boxer-home'),
-                  onCompletado: () => context.go('/timer-summary'),
-                )
+                  onCompletado: () {
+                  },
+                ),
               ],
             ),
           )

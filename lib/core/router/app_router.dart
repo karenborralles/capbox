@@ -1,7 +1,9 @@
 import 'package:capbox/features/boxer/presentation/pages/boxer_ficha_tecnica_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_metrics_page.dart';
+import 'package:capbox/features/boxer/presentation/pages/boxer_technique_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_timer_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_timer_summary_page.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:capbox/features/auth/presentation/pages/login_page.dart';
 import 'package:capbox/features/auth/presentation/pages/register_page.dart';
@@ -31,6 +33,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/timer-summary',
       builder: (_, __) => const BoxerTimerSummaryPage(),
+    ),
+    GoRoute(
+      path: '/technique',
+      pageBuilder: (context, state) => const MaterialPage(child: BoxerTechniquePage()),
     ),
   ],
 );

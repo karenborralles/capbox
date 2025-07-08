@@ -100,7 +100,7 @@ class _BoxerTimerSummaryPageState extends State<BoxerTimerSummaryPage> {
                 const SizedBox(height: 24),
                 BoxerTimerActions(
                   onRetirarse: () => context.go('/boxer-home'),
-                  onCompletado: () => context.go('/boxer-home'),
+                  onCompletado: () => context.go('/technique'),
                 ),
               ],
             ),
