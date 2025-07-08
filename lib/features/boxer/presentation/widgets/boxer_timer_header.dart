@@ -1,15 +1,18 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class BoxerTimerHeader extends StatelessWidget {
   final bool isRunning;
   final int remainingSeconds;
   final VoidCallback onToggle;
+  final String? sessionTitle; // NUEVO
 
   const BoxerTimerHeader({
     super.key,
     required this.isRunning,
     required this.remainingSeconds,
     required this.onToggle,
+    this.sessionTitle, // NUEVO
   });
 
   String _formatTime(int seconds) {
@@ -54,10 +57,11 @@ class BoxerTimerHeader extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 24),
-        const Text(
-          'SESIÓN DE CALENTAMIENTO',
-          style: TextStyle(color: Colors.white, fontSize: 17),
-        ),
+        if (sessionTitle != null) // Mostrar solo si se recibe
+          Text(
+            sessionTitle!,
+            style: const TextStyle(color: Colors.white, fontSize: 17),
+          ),
       ],
     );
   }

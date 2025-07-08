@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class BoxerTimerTable extends StatelessWidget {
-  const BoxerTimerTable({super.key});
+  final List<Map<String, String>> exercises;
+
+  const BoxerTimerTable({super.key, required this.exercises});
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +22,8 @@ class BoxerTimerTable extends StatelessWidget {
         border: TableBorder.symmetric(
           inside: const BorderSide(color: Colors.red, width: 0.5),
         ),
-        children: const [
-          TableRow(
+        children: [
+          const TableRow(
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 4),
@@ -35,57 +37,21 @@ class BoxerTimerTable extends StatelessWidget {
               ),
             ],
           ),
-          TableRow(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 2),
-                child: Text('Movimientos de hombro',
-                    style: TextStyle(color: Colors.white70)),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 2),
-                child: Text('30', style: TextStyle(color: Colors.white70)),
-              ),
-            ],
-          ),
-          TableRow(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 2),
-                child: Text('Movimientos de cabeza',
-                    style: TextStyle(color: Colors.white70)),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 2),
-                child: Text('30', style: TextStyle(color: Colors.white70)),
-              ),
-            ],
-          ),
-          TableRow(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 2),
-                child: Text('Estiramientos de brazos',
-                    style: TextStyle(color: Colors.white70)),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 2),
-                child: Text('30', style: TextStyle(color: Colors.white70)),
-              ),
-            ],
-          ),
-          TableRow(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 2),
-                child: Text('Movimientos de pies',
-                    style: TextStyle(color: Colors.white70)),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 2),
-                child: Text('1min', style: TextStyle(color: Colors.white70)),
-              ),
-            ],
+          ...exercises.map(
+            (item) => TableRow(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 2),
+                  child: Text(item['name'] ?? '',
+                      style: const TextStyle(color: Colors.white70)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 2),
+                  child: Text(item['count'] ?? '',
+                      style: const TextStyle(color: Colors.white70)),
+                ),
+              ],
+            ),
           ),
         ],
       ),
