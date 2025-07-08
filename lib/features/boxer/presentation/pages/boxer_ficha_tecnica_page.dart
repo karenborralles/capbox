@@ -91,23 +91,23 @@ class BoxerFichaTecnicaPage extends StatelessWidget {
           ),
           const SizedBox(height: 10),
 
-          // Primera fila: Edad y Peso
+          // primera fila: Edad y Peso
           _infoRowDual('Edad:', '16 años', 'Peso:', '60kg'),
 
-          // Segunda fila: Estatura y Peleas
+          // segunda fila: Estatura y Peleas
           _infoRowDual('Estatura:', '1.65 m', 'Peleas:', '25'),
 
-          // Tercera fila: Victorias
+          // tercera fila: Victorias
           _infoRowSingle('Victorias:', '20'),
 
           const Divider(color: Colors.white24),
 
-          // Nivel y Guardia
+          // nivel y Guardia
           _infoRowDual('Nivel:', 'Principiante', 'Guardia:', 'Derecha'),
 
           const Divider(color: Colors.white24),
 
-          // Gimnasio y Entrenador
+          // gimnasio y Entrenador
           _infoRowSingle('Gimnasio:', 'Zikar Palenque de campeones'),
           _infoRowSingle('Entrenador:', 'Fernando Dinamita'),
         ],
