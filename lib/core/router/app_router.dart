@@ -1,9 +1,12 @@
 import 'package:capbox/features/boxer/presentation/pages/boxer_ficha_tecnica_page.dart';
+import 'package:capbox/features/boxer/presentation/pages/boxer_history_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_metrics_page.dart';
+import 'package:capbox/features/boxer/presentation/pages/boxer_profile_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_summary_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_technique_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_timer_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_timer_summary_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:capbox/features/auth/presentation/pages/login_page.dart';
@@ -11,8 +14,9 @@ import 'package:capbox/features/auth/presentation/pages/register_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_home_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_events_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_invitation_detail_page.dart';
-import 'package:capbox/features/boxer/presentation/pages/boxer_profile_page.dart';
-import 'package:capbox/features/boxer/presentation/pages/boxer_history_page.dart'; 
+import 'package:capbox/features/coach/presentation/pages/coach_home_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_profile_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_history_page.dart';
 
 final GoRouter appRouter = GoRouter(
   debugLogDiagnostics: true,
@@ -31,5 +35,19 @@ final GoRouter appRouter = GoRouter(
     GoRoute(path: '/timer-summary', builder: (_, __) => const BoxerTimerSummaryPage()),
     GoRoute(path: '/technique', pageBuilder: (context, state) => const MaterialPage(child: BoxerTechniquePage())),
     GoRoute(path: '/summary', builder: (context, state) => const BoxerSummaryPage()),
+
+    //entrenador
+    GoRoute(
+      path: '/coach-home',
+      builder: (context, state) => const CoachHomePage(),
+    ),
+    GoRoute(
+      path: '/coach-profile',
+      builder: (context, state) => const CoachProfilePage(),
+    ),
+    GoRoute(
+      path: '/coach-history',
+      builder: (context, state) => const CoachHistoryPage(),
+    ),
   ],
 );

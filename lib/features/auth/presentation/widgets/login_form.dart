@@ -110,7 +110,8 @@ class _LoginFormState extends State<LoginForm> {
                   return;
                 }
 
-                context.go('/boxer-home');
+                //context.go('/boxer-home');
+                context.go('/coach-home');
 
                 // Aquí se llamaría al cubit para iniciar sesión:
                 // context.read<LoginCubit>().login(email, password);
