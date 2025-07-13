@@ -34,7 +34,7 @@ class CoachHomeContent extends StatelessWidget {
                   context,
                   'Lista de asistencia',
                   const Color(0xFF006F38),
-                  route: '/coach-attendance', // ← Aquí redirige
+                  route: '/coach-attendance', 
                 ),
               ),
               const SizedBox(width: 12),
@@ -43,6 +43,7 @@ class CoachHomeContent extends StatelessWidget {
                   context,
                   'Rutinas',
                   const Color(0xFF006F38),
+                  route: '/coach-routines', 
                 ),
               ),
             ],
