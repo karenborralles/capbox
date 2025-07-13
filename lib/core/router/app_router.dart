@@ -14,9 +14,9 @@ import 'package:capbox/features/auth/presentation/pages/register_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_home_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_events_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_invitation_detail_page.dart';
-import 'package:capbox/features/coach/presentation/pages/coach_home_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_profile_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_history_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_attendance_page.dart';
 
 final GoRouter appRouter = GoRouter(
   debugLogDiagnostics: true,
@@ -48,6 +48,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/coach-history',
       builder: (context, state) => const CoachHistoryPage(),
+    ),
+    GoRoute(
+      path: '/coach-attendance',
+      builder: (_, __) => const CoachAttendancePage(),
     ),
   ],
 );

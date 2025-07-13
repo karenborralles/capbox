@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:capbox/features/coach/presentation/widgets/coach_header.dart';
+import 'package:go_router/go_router.dart';
 
 class CoachHomeContent extends StatelessWidget {
   final int pendingRequests;
@@ -25,18 +26,31 @@ class CoachHomeContent extends StatelessWidget {
           ),
           const SizedBox(height: 24),
 
-          // primera fila horizontal
+          // Primera fila horizontal
           Row(
             children: [
-              Expanded(child: _buildStyledButton(context, 'Lista de asistencia', const Color.fromARGB(255, 0, 111, 56))),
+              Expanded(
+                child: _buildStyledButton(
+                  context,
+                  'Lista de asistencia',
+                  const Color(0xFF006F38),
+                  route: '/coach-attendance', // ← Aquí redirige
+                ),
+              ),
               const SizedBox(width: 12),
-              Expanded(child: _buildStyledButton(context, 'Rutinas', const Color.fromARGB(255, 0, 111, 56))),
+              Expanded(
+                child: _buildStyledButton(
+                  context,
+                  'Rutinas',
+                  const Color(0xFF006F38),
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 16),
 
-          // lista vertical
-          _buildStyledButton(context, 'Asignar metas individuales', const Color.fromARGB(255, 0, 111, 56)),
+          // Lista vertical
+          _buildStyledButton(context, 'Asignar metas individuales', const Color(0xFF006F38)),
           const SizedBox(height: 12),
           _buildStyledButton(context, 'Gestionar alumnos', const Color(0xFF0076AD)),
           const SizedBox(height: 12),
@@ -71,12 +85,16 @@ class CoachHomeContent extends StatelessWidget {
     );
   }
 
-  Widget _buildStyledButton(BuildContext context, String text, Color color) {
+  Widget _buildStyledButton(BuildContext context, String text, Color color, {String? route}) {
     return SizedBox(
       width: double.infinity,
       height: 45,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          if (route != null) {
+            context.go(route);
+          }
+        },
         style: ElevatedButton.styleFrom(
           foregroundColor: Colors.white,
           backgroundColor: color,

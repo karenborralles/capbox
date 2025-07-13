@@ -10,8 +10,23 @@ class CoachHomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       bottomNavigationBar: const CoachNavBar(currentIndex: 1),
-      body: const SafeArea(
-        child: CoachHomeContent(),
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(
+              'assets/images/fondo.png',
+              fit: BoxFit.cover,
+            ),
+          ),
+          Positioned.fill(
+            child: Container(
+              color: Colors.black.withOpacity(0.6), 
+            ),
+          ),
+          const SafeArea(
+            child: CoachHomeContent(),
+          ),
+        ],
       ),
     );
   }
