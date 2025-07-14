@@ -6,6 +6,7 @@ import 'package:capbox/features/boxer/presentation/pages/boxer_summary_page.dart
 import 'package:capbox/features/boxer/presentation/pages/boxer_technique_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_timer_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_timer_summary_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_assign_routine_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_home_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_routines_page.dart';
 import 'package:flutter/material.dart';
@@ -57,6 +58,13 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/coach-routines',
       builder: (context, state) => const CoachRoutinesPage(),
+    ),
+    GoRoute(
+      path: '/assign-routine/:nivel',
+      builder: (context, state) {
+        final nivel = state.pathParameters['nivel']!;
+        return CoachAssignRoutinePage(nivel: nivel);
+      },
     ),
   ],
 );
