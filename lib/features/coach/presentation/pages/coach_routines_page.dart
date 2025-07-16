@@ -96,7 +96,7 @@ class _RoutineButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {
           if (isGestionar) {
-            // para futura navegaci+on a gestionar rutinas
+            context.go('/coach/manage-routines');
             return;
           }
           if (nivel != null) {
