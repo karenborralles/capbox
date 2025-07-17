@@ -7,6 +7,7 @@ import 'package:capbox/features/boxer/presentation/pages/boxer_technique_page.da
 import 'package:capbox/features/boxer/presentation/pages/boxer_timer_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_timer_summary_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_assign_routine_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_create_routine_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_home_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_manage_routine_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_manage_routines_page.dart';
@@ -79,5 +80,10 @@ final GoRouter appRouter = GoRouter(
         return CoachManageRoutinePage(nivel: nivel);
       },
     ),
+    GoRoute(
+      path: '/coach/create-routine',
+      builder: (context, state) => const CoachCreateRoutinePage(),
+    ),
+    
   ],
 );

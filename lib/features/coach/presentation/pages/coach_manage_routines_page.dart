@@ -55,7 +55,7 @@ class CoachManageRoutinesPage extends StatelessWidget {
                   }),
                   const SizedBox(height: 12),
                   _buildSolidButton(context, 'Volver', () {
-                    context.pop();
+                    context.go('/coach-routines');
                   }),
                 ],
               ),
