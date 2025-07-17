@@ -26,7 +26,7 @@ class CoachHomeContent extends StatelessWidget {
           ),
           const SizedBox(height: 24),
 
-          // Primera fila horizontal
+          // primera fila horizontal
           Row(
             children: [
               Expanded(
@@ -55,14 +55,14 @@ class CoachHomeContent extends StatelessWidget {
             context,
             'Asignar metas individuales',
             const Color(0xFF006F38),
-            route: '/coach/assign-goals', // Aquí está la redirección nueva
+            route: '/coach/assign-goals', 
           ),
           const SizedBox(height: 12),
           _buildStyledButton(
             context,
             'Gestionar alumnos',
             const Color(0xFF0076AD),
-            // Aquí puedes ponerle una ruta si ya la tienes definida
+            route: '/coach-manage-students',
           ),
           const SizedBox(height: 12),
 

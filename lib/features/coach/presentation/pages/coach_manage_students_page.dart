@@ -3,16 +3,16 @@ import 'package:capbox/features/coach/presentation/widgets/coach_header.dart';
 import 'package:capbox/features/coach/presentation/widgets/coach_navbar.dart';
 import 'package:capbox/features/coach/presentation/widgets/student_list_widget.dart';
 
-class CoachSelectStudentPage extends StatelessWidget {
+class CoachManageStudentsPage extends StatelessWidget {
   final List<String> students = [
-    'Ana Karen Álvarez Borralles',
     'Arturo Amizaday Jimenez Ojendis',
+    'Ana Karen Álvarez Borralles',
     'Jonathan Dzul Mendoza',
-    'Juan Jimenez',
     'Nuricumbo Jimenez Pedregal',
+    'Alberto Taboada De La Cruz',
   ];
 
-  CoachSelectStudentPage({super.key});
+  CoachManageStudentsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class CoachSelectStudentPage extends StatelessWidget {
                   const CoachHeader(),
                   const SizedBox(height: 20),
                   const Text(
-                    'Asignar meta personal a:',
+                    'Gestion de alumnos',
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   const SizedBox(height: 10),
@@ -66,7 +66,7 @@ class CoachSelectStudentPage extends StatelessWidget {
                   StudentListWidget(
                     students: students,
                     onStudentTap: (student) {
-                      Navigator.pop(context, student); // regresa nombre
+                      // vista proxima al seleccionar un alumno
                     },
                   ),
                 ],
