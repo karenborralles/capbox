@@ -1,3 +1,4 @@
+import 'package:capbox/features/coach/presentation/pages/coach_student_profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:capbox/features/coach/presentation/widgets/coach_header.dart';
 import 'package:capbox/features/coach/presentation/widgets/coach_navbar.dart';
@@ -66,7 +67,12 @@ class CoachManageStudentsPage extends StatelessWidget {
                   StudentListWidget(
                     students: students,
                     onStudentTap: (student) {
-                      // vista proxima al seleccionar un alumno
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => CoachStudentProfilePage(studentName: student),
+                        ),
+                      );
                     },
                   ),
                 ],
