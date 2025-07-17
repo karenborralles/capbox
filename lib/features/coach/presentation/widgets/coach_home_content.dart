@@ -34,7 +34,7 @@ class CoachHomeContent extends StatelessWidget {
                   context,
                   'Lista de asistencia',
                   const Color(0xFF006F38),
-                  route: '/coach-attendance', 
+                  route: '/coach-attendance',
                 ),
               ),
               const SizedBox(width: 12),
@@ -43,7 +43,7 @@ class CoachHomeContent extends StatelessWidget {
                   context,
                   'Rutinas',
                   const Color(0xFF006F38),
-                  route: '/coach-routines', 
+                  route: '/coach-routines',
                 ),
               ),
             ],
@@ -51,14 +51,29 @@ class CoachHomeContent extends StatelessWidget {
           const SizedBox(height: 16),
 
           // Lista vertical
-          _buildStyledButton(context, 'Asignar metas individuales', const Color(0xFF006F38)),
+          _buildStyledButton(
+            context,
+            'Asignar metas individuales',
+            const Color(0xFF006F38),
+            route: '/coach/assign-goals', // Aquí está la redirección nueva
+          ),
           const SizedBox(height: 12),
-          _buildStyledButton(context, 'Gestionar alumnos', const Color(0xFF0076AD)),
+          _buildStyledButton(
+            context,
+            'Gestionar alumnos',
+            const Color(0xFF0076AD),
+            // Aquí puedes ponerle una ruta si ya la tienes definida
+          ),
           const SizedBox(height: 12),
 
           Stack(
             children: [
-              _buildStyledButton(context, 'Captura de datos de alumno', const Color.fromRGBO(113, 113, 113, 0.5)),
+              _buildStyledButton(
+                context,
+                'Captura de datos de alumno',
+                const Color.fromRGBO(113, 113, 113, 0.5),
+                // Aquí puedes ponerle una ruta si ya la tienes
+              ),
               if (pendingRequests > 0)
                 Positioned(
                   right: 16,
@@ -75,11 +90,23 @@ class CoachHomeContent extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 12),
-          _buildStyledButton(context, 'Realizar toma de pruebas', const Color.fromRGBO(113, 113, 113, 0.5)),
+          _buildStyledButton(
+            context,
+            'Realizar toma de pruebas',
+            const Color.fromRGBO(113, 113, 113, 0.5),
+          ),
           const SizedBox(height: 12),
-          _buildStyledButton(context, 'Generar clave de registro', const Color.fromRGBO(113, 113, 113, 0.5)),
+          _buildStyledButton(
+            context,
+            'Generar clave de registro',
+            const Color.fromRGBO(113, 113, 113, 0.5),
+          ),
           const SizedBox(height: 12),
-          _buildStyledButton(context, 'HERRAMIENTAS DE IA', const Color.fromRGBO(246, 255, 0, 0.34)),
+          _buildStyledButton(
+            context,
+            'HERRAMIENTAS DE IA',
+            const Color.fromRGBO(246, 255, 0, 0.34),
+          ),
           const SizedBox(height: 60),
         ],
       ),
