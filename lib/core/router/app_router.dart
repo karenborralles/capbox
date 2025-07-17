@@ -13,6 +13,7 @@ import 'package:capbox/features/coach/presentation/pages/coach_home_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_manage_routine_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_manage_routines_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_routines_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_select_student_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:capbox/features/auth/presentation/pages/login_page.dart';
@@ -88,6 +89,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/coach/assign-goals',
       builder: (context, state) => const CoachAssignGoalsPage(),
+    ),
+    GoRoute(
+      path: '/coach/select-student',
+      builder: (context, state) => CoachSelectStudentPage(),
     ),
   ],
 );

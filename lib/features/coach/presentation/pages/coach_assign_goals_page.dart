@@ -118,7 +118,12 @@ class _CoachAssignGoalsPageState extends State<CoachAssignGoalsPage> {
                       children: [
                         const Text('Alumno', style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () async {
+                            final selected = await context.push<String>('/coach/select-student');
+                            if (selected != null) {
+                              setState(() => selectedStudent = selected);
+                            }
+                          },
                           child: const Text('Seleccionar alumno', style: TextStyle(color: Color(0xFF0076AD))),
                         ),
                       ],
