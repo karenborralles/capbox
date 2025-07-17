@@ -34,7 +34,7 @@ class CoachManageRoutinesPage extends StatelessWidget {
                   const Divider(color: Colors.white24),
                   const SizedBox(height: 8),
                   const Text(
-                    'Asignar rutinas',
+                    'Gestionar rutinas',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
