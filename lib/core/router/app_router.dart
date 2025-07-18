@@ -13,6 +13,13 @@ import 'package:capbox/features/coach/presentation/pages/coach_home_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_manage_routine_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_manage_routines_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_manage_students_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_performance_test2_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_performance_test_3_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_performance_test_4_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_performance_test_5_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_performance_test_6_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_performance_test_7_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_performance_test_8_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_routines_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_select_student_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_student_profile_page.dart';
@@ -128,6 +135,34 @@ final GoRouter appRouter = GoRouter(
       path: '/coach/student-test',
       name: 'student-test',
       builder: (context, state) => const CoachStudentTestPage(),
+    ),
+    GoRoute(
+      path: '/coach-performance-test-2',
+      builder: (context, state) => const CoachPerformanceTest2Page(),
+    ),
+    GoRoute(
+      path: '/coach-performance-test-3',
+      builder: (context, state) => const CoachPerformanceTest3Page(),
+    ),
+    GoRoute(
+      path: '/coach-performance-test-4',
+      builder: (context, state) => const CoachPerformanceTest4Page(),
+    ),
+    GoRoute(
+      path: '/coach-performance-test-5',
+      builder: (context, state) => const CoachPerformanceTest5Page(),
+    ),
+    GoRoute(
+      path: '/coach-performance-test-6',
+      builder: (context, state) => const CoachPerformanceTest6Page(),
+    ),
+    GoRoute(
+      path: '/coach-performance-test-7',
+      builder: (context, state) => const CoachPerformanceTest7Page(),
+    ),
+    GoRoute(
+      path: '/coach-performance-test-8',
+      builder: (context, state) => const CoachPerformanceTest8Page(),
     ),
   ],
 );

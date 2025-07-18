@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 import '../widgets/coach_header.dart';
 import '../widgets/coach_navbar.dart';
 
-class CoachStudentTestPage extends StatelessWidget {
-  const CoachStudentTestPage({super.key});
+class CoachPerformanceTest4Page extends StatelessWidget {
+  const CoachPerformanceTest4Page({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +42,11 @@ class CoachStudentTestPage extends StatelessWidget {
                   _alertBox(),
                   const SizedBox(height: 12),
                   const Text(
-                    'Prueba 1 de 8',
+                    'Prueba 4 de 8',
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                   const SizedBox(height: 8),
-                  _pill('PRECISIÓN DE JAB'),
+                  _pill('Resistencia de golpes'),
                   const SizedBox(height: 16),
                   const Text(
                     'Instrucciones para realizar la prueba',
@@ -63,7 +63,7 @@ class CoachStudentTestPage extends StatelessWidget {
                   _resultInput(),
                   const SizedBox(height: 4),
                   const Text(
-                    '(Se espera un dato del 1 al 20)',
+                    '(Tiempo de golpeo constante )',
                     style: TextStyle(color: Colors.white70, fontSize: 12),
                   ),
                   const SizedBox(height: 20),
@@ -128,7 +128,7 @@ class CoachStudentTestPage extends StatelessWidget {
   Widget _alertBox() => Container(
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: Color(0xFFFFB800),
+          color: const Color(0xFFFFB800),
           borderRadius: BorderRadius.circular(10),
         ),
         child: const Text(
@@ -164,7 +164,8 @@ class CoachStudentTestPage extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         child: const Text(
-          'Lanza 20 jabs al foco/mitten.\nCuentan solo impactos limpios sobre 20.',
+          'Con un cronometro mida cuanto tiempo sin parar el alumno es capaz de mantener un golpeo constante al aire.'
+          '(Después de esto se recomienda un minuto de descanso)',
           style: TextStyle(color: Colors.white70),
         ),
       );
@@ -191,7 +192,7 @@ class CoachStudentTestPage extends StatelessWidget {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Guardado correctamente')),
         );
-        context.go('/coach-performance-test-2');
+        context.go('/coach-performance-test-5'); 
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.green,
