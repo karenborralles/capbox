@@ -63,9 +63,10 @@ class CoachStudentProfilePage extends StatelessWidget {
                               Text(
                                 studentName,
                                 style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               const SizedBox(height: 4),
                               const Text(
@@ -89,7 +90,7 @@ class CoachStudentProfilePage extends StatelessWidget {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF8B0000),
-                            foregroundColor: Colors.white, 
+                            foregroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -162,7 +163,7 @@ class CoachStudentProfilePage extends StatelessWidget {
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF004C99),
-                      foregroundColor: Colors.white, 
+                      foregroundColor: Colors.white,
                       minimumSize: const Size.fromHeight(50),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -175,7 +176,9 @@ class CoachStudentProfilePage extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   _grayButton('Ver métricas de rendimiento'),
-                  _grayButton('Realizar pruebas de rendimiento'),
+                  _grayButton('Realizar pruebas de rendimiento', onTap: () {
+                    context.go('/coach/student-test-preview');
+                  }),
                   _grayButton('Ver historial de peleas'),
                   _grayButton('Registrar pelea(s)'),
                   _grayButton('Editar datos personales / tutor / físicos'),
@@ -188,19 +191,19 @@ class CoachStudentProfilePage extends StatelessWidget {
     );
   }
 
-  Widget _grayButton(String text) {
+  Widget _grayButton(String text, {VoidCallback? onTap}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.grey.shade800,
-          foregroundColor: Colors.white, 
+          foregroundColor: Colors.white,
           minimumSize: const Size.fromHeight(50),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
         ),
-        onPressed: () {},
+        onPressed: onTap ?? () {},
         child: Text(text),
       ),
     );
