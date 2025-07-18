@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:capbox/features/coach/presentation/widgets/coach_header.dart';
 import 'package:capbox/features/coach/presentation/widgets/coach_navbar.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:go_router/go_router.dart';
 
 class CoachStudentTestPreviewPage extends StatelessWidget {
   const CoachStudentTestPreviewPage({super.key});
@@ -62,7 +63,7 @@ class CoachStudentTestPreviewPage extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      // Navegar a prueba
+                      context.go('/coach/student-test');
                     },
                     child: const Text('REALIZAR PRUEBAS'),
                   ),

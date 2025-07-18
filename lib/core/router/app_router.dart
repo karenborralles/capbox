@@ -16,6 +16,7 @@ import 'package:capbox/features/coach/presentation/pages/coach_manage_students_p
 import 'package:capbox/features/coach/presentation/pages/coach_routines_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_select_student_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_student_profile_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_student_test_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_student_test_preview_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_technical_profile_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_update_goals_page.dart';
@@ -122,6 +123,11 @@ final GoRouter appRouter = GoRouter(
       path: '/coach/student-test-preview',
       name: 'studentTestPreview',
       builder: (context, state) => const CoachStudentTestPreviewPage(),
+    ),
+    GoRoute(
+      path: '/coach/student-test',
+      name: 'student-test',
+      builder: (context, state) => const CoachStudentTestPage(),
     ),
   ],
 );
