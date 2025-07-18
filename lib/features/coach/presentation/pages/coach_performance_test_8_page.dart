@@ -3,8 +3,21 @@ import 'package:go_router/go_router.dart';
 import '../widgets/coach_header.dart';
 import '../widgets/coach_navbar.dart';
 
-class CoachPerformanceTest8Page extends StatelessWidget {
+class CoachPerformanceTest8Page extends StatefulWidget {
   const CoachPerformanceTest8Page({super.key});
+
+  @override
+  State<CoachPerformanceTest8Page> createState() => _CoachPerformanceTest8PageState();
+}
+
+class _CoachPerformanceTest8PageState extends State<CoachPerformanceTest8Page> {
+  final TextEditingController _resultController = TextEditingController();
+
+  @override
+  void dispose() {
+    _resultController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -164,34 +177,42 @@ class CoachPerformanceTest8Page extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         child: const Text(
-          'Con un cronómetro cuente cuanto tiempo el alumno es capaz de mantenerse en posicion de plancha.',
+          'Con un cronómetro cuente cuanto tiempo el alumno es capaz de mantenerse en posición de plancha.',
           style: TextStyle(color: Colors.white70),
         ),
       );
 
-  Widget _resultInput() => Container(
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-        decoration: BoxDecoration(
-          color: Colors.white12,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: const Row(
-          children: [
-            Icon(Icons.check_box_outline_blank, color: Colors.grey),
-            SizedBox(width: 8),
-            Text('Resultado...', style: TextStyle(color: Colors.white54)),
-          ],
+  Widget _resultInput() => TextField(
+        controller: _resultController,
+        keyboardType: TextInputType.text,
+        style: const TextStyle(color: Colors.white),
+        decoration: InputDecoration(
+          hintText: 'Ingresa el resultado...',
+          hintStyle: const TextStyle(color: Colors.white38),
+          filled: true,
+          fillColor: Colors.white12,
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide.none,
+          ),
         ),
       );
 
   Widget _continueButton(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
+        if (_resultController.text.isEmpty) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Por favor ingresa un resultado')),
+          );
+          return;
+        }
+
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Guardado correctamente')),
         );
-        context.go('/coach-performance-test-8'); //Vista siguiente
+        context.go('/coach-metrics');
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.green,

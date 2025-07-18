@@ -13,6 +13,7 @@ import 'package:capbox/features/coach/presentation/pages/coach_home_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_manage_routine_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_manage_routines_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_manage_students_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_metrics_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_performance_test2_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_performance_test_3_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_performance_test_4_page.dart';
@@ -163,6 +164,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/coach-performance-test-8',
       builder: (context, state) => const CoachPerformanceTest8Page(),
+    ),
+    GoRoute(
+      path: '/coach-metrics',
+      builder: (context, state) => const CoachMetricsPage(),
     ),
   ],
 );

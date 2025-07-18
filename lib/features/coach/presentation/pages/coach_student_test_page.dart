@@ -3,8 +3,21 @@ import 'package:go_router/go_router.dart';
 import '../widgets/coach_header.dart';
 import '../widgets/coach_navbar.dart';
 
-class CoachStudentTestPage extends StatelessWidget {
+class CoachStudentTestPage extends StatefulWidget {
   const CoachStudentTestPage({super.key});
+
+  @override
+  State<CoachStudentTestPage> createState() => _CoachStudentTestPageState();
+}
+
+class _CoachStudentTestPageState extends State<CoachStudentTestPage> {
+  final TextEditingController _resultController = TextEditingController();
+
+  @override
+  void dispose() {
+    _resultController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -169,25 +182,37 @@ class CoachStudentTestPage extends StatelessWidget {
         ),
       );
 
-  Widget _resultInput() => Container(
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-        decoration: BoxDecoration(
-          color: Colors.white12,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: const Row(
-          children: [
-            Icon(Icons.check_box_outline_blank, color: Colors.grey),
-            SizedBox(width: 8),
-            Text('Resultado...', style: TextStyle(color: Colors.white54)),
-          ],
+  Widget _resultInput() => TextField(
+        controller: _resultController,
+        keyboardType: TextInputType.number,
+        maxLength: 2,
+        style: const TextStyle(color: Colors.white),
+        decoration: InputDecoration(
+          counterText: "",
+          hintText: 'Ingresa el resultado...',
+          hintStyle: const TextStyle(color: Colors.white38),
+          filled: true,
+          fillColor: Colors.white12,
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide.none,
+          ),
         ),
       );
 
   Widget _continueButton(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
+        if (_resultController.text.isEmpty) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Por favor ingresa un resultado')),
+          );
+          return;
+        }
+
+        // para guardar el resultado cuando se conecte
+
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Guardado correctamente')),
         );
