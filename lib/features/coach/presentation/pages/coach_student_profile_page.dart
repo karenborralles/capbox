@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:capbox/features/coach/presentation/widgets/coach_header.dart';
 import 'package:capbox/features/coach/presentation/widgets/coach_navbar.dart';
+import 'package:go_router/go_router.dart';
 
 class CoachStudentProfilePage extends StatelessWidget {
   final String studentName;
@@ -102,12 +103,25 @@ class CoachStudentProfilePage extends StatelessWidget {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF004C99),
-                            foregroundColor: Colors.white, 
+                            foregroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            context.go('/coach-ficha-tecnica', extra: {
+                              'nombre': studentName,
+                              'edad': 20,
+                              'peso': '70kg',
+                              'estatura': '1.70m',
+                              'peleas': 25,
+                              'victorias': 20,
+                              'nivel': 'Principiante',
+                              'guardia': 'Derecha',
+                              'gimnasio': 'Zikar Palenque de campeones',
+                              'entrenador': 'Fernando Dinamita',
+                            });
+                          },
                           child: const Text('Ver ficha técnica'),
                         ),
                       ),
