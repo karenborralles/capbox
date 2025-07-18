@@ -168,7 +168,9 @@ class CoachStudentProfilePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      context.go('/coach-update-goals');
+                    },
                     child: const Text('Realizar check de metas'),
                   ),
                   const SizedBox(height: 16),

@@ -15,7 +15,9 @@ import 'package:capbox/features/coach/presentation/pages/coach_manage_routines_p
 import 'package:capbox/features/coach/presentation/pages/coach_manage_students_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_routines_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_select_student_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_student_profile_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_technical_profile_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_update_goals_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:capbox/features/auth/presentation/pages/login_page.dart';
@@ -106,6 +108,14 @@ final GoRouter appRouter = GoRouter(
         final extra = state.extra as Map<String, dynamic>;
         return CoachTechnicalProfilePage(data: extra);
       },
+    ),
+    GoRoute(
+      path: '/coach-update-goals',
+      builder: (context, state) => const CoachUpdateGoalsPage(),
+    ),
+    GoRoute(
+      path: '/coach/student-profile',
+      builder: (context, state) => const CoachStudentProfilePage(studentName: '',),
     ),
   ],
 );
