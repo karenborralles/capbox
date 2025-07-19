@@ -9,6 +9,7 @@ import 'package:capbox/features/boxer/presentation/pages/boxer_timer_summary_pag
 import 'package:capbox/features/coach/presentation/pages/coach_assign_goals_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_assign_routine_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_create_routine_page.dart';
+import 'package:capbox/features/coach/presentation/widgets/coach_fight_history_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_home_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_manage_routine_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_manage_routines_page.dart';
@@ -28,6 +29,7 @@ import 'package:capbox/features/coach/presentation/pages/coach_student_test_page
 import 'package:capbox/features/coach/presentation/pages/coach_student_test_preview_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_technical_profile_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_update_goals_page.dart';
+import 'package:capbox/features/coach/presentation/widgets/coach_register_fight_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:capbox/features/auth/presentation/pages/login_page.dart';
@@ -167,7 +169,26 @@ final GoRouter appRouter = GoRouter(
     ),
     GoRoute(
       path: '/coach-metrics',
-      builder: (context, state) => const CoachMetricsPage(),
+      builder: (context, state) => const CoachMetricsPage(studentName: '',),
+    ),
+    GoRoute(
+      path: '/coach/metrics',
+      builder: (context, state) {
+        final studentName = state.extra as String;
+        return CoachMetricsPage(studentName: studentName);
+      },
+    ),
+    GoRoute(
+      path: '/coach/fights',
+      builder: (context, state) {
+        final studentName = state.extra as String;
+        return CoachFightHistoryPage(studentName: studentName);
+      },
+    ),
+    GoRoute(
+      path: '/coach-fight-register',
+      name: 'coach-fight-register',
+      builder: (context, state) => const CoachRegisterFightPage(),
     ),
   ],
 );

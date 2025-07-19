@@ -7,7 +7,7 @@ import 'package:capbox/features/coach/presentation/widgets/coach_navbar.dart';
 import 'package:flutter/material.dart';
 
 class CoachMetricsPage extends StatefulWidget {
-  const CoachMetricsPage({super.key});
+  const CoachMetricsPage({super.key, required String studentName});
 
   @override
   State<CoachMetricsPage> createState() => _CoachMetricsPageState();
@@ -21,7 +21,7 @@ class _CoachMetricsPageState extends State<CoachMetricsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      bottomNavigationBar: const CoachNavBar(currentIndex: 0),
+      bottomNavigationBar: const CoachNavBar(currentIndex: 1),
       body: Stack(
         children: [
           Image.asset('assets/images/fondo.png', fit: BoxFit.cover, width: double.infinity, height: double.infinity),

@@ -175,12 +175,18 @@ class CoachStudentProfilePage extends StatelessWidget {
                     child: const Text('Realizar check de metas'),
                   ),
                   const SizedBox(height: 16),
-                  _grayButton('Ver métricas de rendimiento'),
+                  _grayButton('Ver métricas de rendimiento', onTap: () {
+                    context.go('/coach-metrics');
+                  }),
                   _grayButton('Realizar pruebas de rendimiento', onTap: () {
                     context.go('/coach/student-test-preview');
                   }),
-                  _grayButton('Ver historial de peleas'),
-                  _grayButton('Registrar pelea(s)'),
+                  _grayButton('Ver historial de peleas', onTap: () {
+                    context.go('/coach/fights', extra: studentName);
+                  }),
+                  _grayButton('Registrar pelea(s)', onTap: () {
+                    context.go('/coach-fight-register', extra: studentName);
+                  }),
                   _grayButton('Editar datos personales / tutor / físicos'),
                 ],
               ),
