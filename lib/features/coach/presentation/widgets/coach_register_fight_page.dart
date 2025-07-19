@@ -83,8 +83,8 @@ class _CoachRegisterFightPageState extends State<CoachRegisterFightPage> {
                           ),
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
-                              // Guardar pelea (cuando conecte)
-                              context.go('/coach/fights');
+                              // Simulamos guardar pelea y luego redirigimos
+                              context.go('/coach/student-profile', extra: 'Juan Jimenez');
                             }
                           },
                           child: const Text('Registrar pelea'),
