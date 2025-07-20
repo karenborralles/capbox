@@ -44,7 +44,6 @@ class _CoachCreateRoutinePageState extends State<CoachCreateRoutinePage> {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          backgroundColor: Colors.grey.shade900,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           title: const Text('Campos obligatorios', style: TextStyle(color: Colors.white)),
           content: const Text(
@@ -65,7 +64,6 @@ class _CoachCreateRoutinePageState extends State<CoachCreateRoutinePage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: Colors.grey.shade900,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         title: const Text('Rutina creada', style: TextStyle(color: Colors.white)),
         content: const Text(
@@ -87,104 +85,121 @@ class _CoachCreateRoutinePageState extends State<CoachCreateRoutinePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       resizeToAvoidBottomInset: true,
-      bottomNavigationBar: const CoachNavBar(currentIndex: 1),
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Positioned.fill(child: Image.asset('assets/images/fondo.png', fit: BoxFit.cover)),
-            Positioned.fill(child: Container(color: Colors.black.withOpacity(0.3))),
-            SingleChildScrollView(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const CoachHeader(),
-                  const SizedBox(height: 16),
-                  const Text(
-                    'Crear rutina',
-                    style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 12),
-                  TextField(
-                    controller: _nameController,
-                    style: const TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                      hintText: 'Nombre de la rutina',
-                      hintStyle: const TextStyle(color: Colors.white54),
-                      filled: true,
-                      fillColor: Colors.grey.shade900,
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  DropdownButtonFormField<String>(
-                    value: selectedLevel,
-                    dropdownColor: Colors.grey.shade900,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.grey.shade900,
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-                    ),
-                    items: ['Principiante', 'Intermedio', 'Avanzado', 'General']
-                        .map((nivel) => DropdownMenuItem(
-                              value: nivel,
-                              child: Text(nivel, style: const TextStyle(color: Colors.white)),
-                            ))
-                        .toList(),
-                    onChanged: (value) => setState(() => selectedLevel = value ?? 'Principiante'),
-                  ),
-                  const SizedBox(height: 14),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: ['calentamiento', 'resistencia', 'tecnica'].map((cat) {
-                      final selected = activeCategory == cat;
-                      return GestureDetector(
-                        onTap: () => setState(() => activeCategory = cat),
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
-                          decoration: BoxDecoration(
-                            color: selected ? Colors.red : Colors.transparent,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Text(
-                            cat[0].toUpperCase() + cat.substring(1),
-                            style: TextStyle(
-                              color: selected ? Colors.white : Colors.white70,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      );
-                    }).toList(),
-                  ),
-                  const SizedBox(height: 12),
-                  RoutineCategoryTab(
-                    category: activeCategory,
-                    exercises: ejercicios[activeCategory]!,
-                    exerciseController: _exerciseController,
-                    minutesController: _minutesController,
-                    secondsController: _secondsController,
-                    onAdd: _addExerciseToCategory,
-                  ),
-                  const SizedBox(height: 16),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 45,
-                    child: ElevatedButton(
-                      onPressed: _crearRutina,
-                      style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                      child: const Text('Crear rutina', style: TextStyle(color: Colors.white)),
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                ],
-              ),
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(
+              'assets/images/fondo.png',
+              fit: BoxFit.cover,
             ),
-          ],
-        ),
+          ),
+          Positioned.fill(
+            child: Container(color: Colors.black.withOpacity(0.6)),
+          ),
+          Column(
+            children: [
+              const SafeArea(child: CoachHeader()),
+              const SizedBox(height: 10),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  'Crear rutina',
+                  style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: _formContent(),
+                ),
+              ),
+              const CoachNavBar(currentIndex: 1),
+            ],
+          ),
+        ],
       ),
+    );
+  }
+
+  Widget _formContent() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(height: 12),
+        TextField(
+          controller: _nameController,
+          style: const TextStyle(color: Colors.white),
+          decoration: InputDecoration(
+            hintText: 'Nombre de la rutina',
+            hintStyle: const TextStyle(color: Colors.white54),
+            filled: true,
+            fillColor: Colors.grey.shade900,
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+          ),
+        ),
+        const SizedBox(height: 10),
+        DropdownButtonFormField<String>(
+          value: selectedLevel,
+          dropdownColor: Colors.grey.shade900,
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.grey.shade900,
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+          ),
+          items: ['Principiante', 'Intermedio', 'Avanzado', 'General']
+              .map((nivel) => DropdownMenuItem(
+                    value: nivel,
+                    child: Text(nivel, style: const TextStyle(color: Colors.white)),
+                  ))
+              .toList(),
+          onChanged: (value) => setState(() => selectedLevel = value ?? 'Principiante'),
+        ),
+        const SizedBox(height: 14),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: ['calentamiento', 'resistencia', 'tecnica'].map((cat) {
+            final selected = activeCategory == cat;
+            return GestureDetector(
+              onTap: () => setState(() => activeCategory = cat),
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+                decoration: BoxDecoration(
+                  color: selected ? Colors.red : Colors.transparent,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Text(
+                  cat[0].toUpperCase() + cat.substring(1),
+                  style: TextStyle(
+                    color: selected ? Colors.white : Colors.white70,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            );
+          }).toList(),
+        ),
+        const SizedBox(height: 12),
+        RoutineCategoryTab(
+          category: activeCategory,
+          exercises: ejercicios[activeCategory]!,
+          exerciseController: _exerciseController,
+          minutesController: _minutesController,
+          secondsController: _secondsController,
+          onAdd: _addExerciseToCategory,
+        ),
+        const SizedBox(height: 16),
+        SizedBox(
+          width: double.infinity,
+          height: 45,
+          child: ElevatedButton(
+            onPressed: _crearRutina,
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+            child: const Text('Crear rutina', style: TextStyle(color: Colors.white)),
+          ),
+        ),
+        const SizedBox(height: 24),
+      ],
     );
   }
 }

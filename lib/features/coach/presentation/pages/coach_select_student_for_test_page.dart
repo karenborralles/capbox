@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:capbox/features/coach/presentation/widgets/coach_header.dart';
 import 'package:capbox/features/coach/presentation/widgets/coach_navbar.dart';
+import 'package:go_router/go_router.dart';
 
 class CoachSelectStudentForTestPage extends StatefulWidget {
   const CoachSelectStudentForTestPage({super.key});
@@ -97,7 +98,7 @@ class _CoachSelectStudentForTestPageState extends State<CoachSelectStudentForTes
                                   ),
                                   title: Text(alumno, style: const TextStyle(color: Colors.white)),
                                   onTap: () {
-                                    // Navegación futura a la vista de pruebas
+                                    context.go('/coach/student-profile');
                                   },
                                 ),
                               ),

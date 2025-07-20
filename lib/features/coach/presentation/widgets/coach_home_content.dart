@@ -55,7 +55,7 @@ class CoachHomeContent extends StatelessWidget {
             context,
             'Asignar metas individuales',
             const Color(0xFF006F38),
-            route: '/coach/assign-goals', 
+            route: '/coach/assign-goals',
           ),
           const SizedBox(height: 12),
           _buildStyledButton(
@@ -97,16 +97,37 @@ class CoachHomeContent extends StatelessWidget {
             route: '/coach-select-student-for-test',
           ),
           const SizedBox(height: 12),
-          _buildStyledButton(
-            context,
-            'Generar clave de registro',
-            const Color.fromRGBO(113, 113, 113, 0.5),
+
+          SizedBox(
+            width: double.infinity,
+            height: 45,
+            child: ElevatedButton(
+              onPressed: () => _mostrarDialogoClave(context),
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: const Color.fromRGBO(113, 113, 113, 0.5),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                elevation: 0,
+                padding: EdgeInsets.zero,
+              ),
+              child: const Text(
+                'Generar clave de registro',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: 'Inter',
+                ),
+              ),
+            ),
           ),
+
           const SizedBox(height: 12),
           _buildStyledButton(
             context,
             'HERRAMIENTAS DE IA',
             const Color.fromRGBO(246, 255, 0, 0.34),
+            route: '/coach-ai-tools',
           ),
           const SizedBox(height: 60),
         ],
@@ -140,6 +161,43 @@ class CoachHomeContent extends StatelessWidget {
             fontFamily: 'Inter',
           ),
         ),
+      ),
+    );
+  }
+
+  void _mostrarDialogoClave(BuildContext context) {
+    final random = DateTime.now().millisecondsSinceEpoch.remainder(100000000);
+    final clave = 'CBX-${random.toString().padLeft(8, '0')}';
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: Colors.grey.shade900,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        title: const Text('Clave de registro', style: TextStyle(color: Colors.white)),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text(
+              'Comparte esta clave con el alumno:',
+              style: TextStyle(color: Colors.white70),
+            ),
+            const SizedBox(height: 12),
+            SelectableText(
+              clave,
+              style: const TextStyle(color: Colors.amber, fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              print(' Clave guardada: $clave');
+              Navigator.of(context).pop();
+            },
+            child: const Text('Cerrar', style: TextStyle(color: Colors.greenAccent)),
+          )
+        ],
       ),
     );
   }

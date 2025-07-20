@@ -14,6 +14,7 @@ import 'package:capbox/features/coach/presentation/pages/coach_register_physical
 import 'package:capbox/features/coach/presentation/pages/coach_register_tutor_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_request_capture_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_select_student_for_test_page.dart';
+import 'package:capbox/features/coach/presentation/widgets/coach_ai_tools_page.dart';
 import 'package:capbox/features/coach/presentation/widgets/coach_fight_history_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_home_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_manage_routine_page.dart';
@@ -65,8 +66,7 @@ final GoRouter appRouter = GoRouter(
     GoRoute(path: '/summary', builder: (context, state) => const BoxerSummaryPage()),
 
     //entrenador
-    GoRoute(
-      path: '/coach-home',
+    GoRoute(path: '/coach-home',
       builder: (context, state) => const CoachHomePage(),
     ),
     GoRoute(
@@ -216,6 +216,10 @@ final GoRouter appRouter = GoRouter(
       path: '/coach-select-student-for-test',
       name: 'coach-select-student-for-test',
       builder: (context, state) => const CoachSelectStudentForTestPage(),
+    ),
+    GoRoute(
+      path: '/coach-ai-tools',
+      builder: (context, state) => const CoachAIToolsPage(),
     ),
   ],
 );
