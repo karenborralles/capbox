@@ -207,7 +207,6 @@ class _CoachAssignGoalsPageState extends State<CoachAssignGoalsPage> {
                     ),
                     const SizedBox(height: 20),
 
-                    /// BOTÓN AJUSTADO UN POCO MÁS ARRIBA
                     Align(
                       alignment: Alignment.center,
                       child: SizedBox(

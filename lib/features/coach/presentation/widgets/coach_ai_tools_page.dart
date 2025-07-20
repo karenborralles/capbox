@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:capbox/features/coach/presentation/widgets/coach_header.dart';
 import 'package:capbox/features/coach/presentation/widgets/coach_navbar.dart';
+import 'package:go_router/go_router.dart';
 
 class CoachAIToolsPage extends StatelessWidget {
   const CoachAIToolsPage({super.key});
@@ -39,9 +40,57 @@ class CoachAIToolsPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 24),
-                  _buildGrayButton('Generar ranking de boxeadores'),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 45,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        context.go('/coach-ranking');
+                      },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: const Color.fromRGBO(113, 113, 113, 0.5),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                        elevation: 0,
+                        padding: EdgeInsets.zero,
+                      ),
+                      child: const Text(
+                        'Generar ranking de boxeadores',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Inter',
+                        ),
+                      ),
+                    ),
+                  ),
                   const SizedBox(height: 12),
-                  _buildGrayButton('Ver mejores sparrings'),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 45,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        context.go('/ranking-sparrings');
+                      },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: const Color.fromRGBO(113, 113, 113, 0.5),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                        elevation: 0,
+                        padding: EdgeInsets.zero,
+                      ),
+                      child: const Text(
+                        'Ver mejores sparrings',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Inter',
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

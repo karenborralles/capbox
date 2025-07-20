@@ -35,6 +35,8 @@ import 'package:capbox/features/coach/presentation/pages/coach_student_test_page
 import 'package:capbox/features/coach/presentation/pages/coach_student_test_preview_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_technical_profile_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_update_goals_page.dart';
+import 'package:capbox/features/coach/presentation/widgets/coach_ranking_page.dart';
+import 'package:capbox/features/coach/presentation/widgets/coach_ranking_sparrings_page.dart';
 import 'package:capbox/features/coach/presentation/widgets/coach_register_fight_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -220,6 +222,14 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/coach-ai-tools',
       builder: (context, state) => const CoachAIToolsPage(),
+    ),
+    GoRoute(
+      path: '/coach-ranking',
+      builder: (context, state) => const CoachRankingPage(),
+    ),
+    GoRoute(
+      path: '/ranking-sparrings',
+      builder: (context, state) => const CoachRankingSparringsPage(), 
     ),
   ],
 );
