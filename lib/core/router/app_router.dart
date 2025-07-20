@@ -9,6 +9,9 @@ import 'package:capbox/features/boxer/presentation/pages/boxer_timer_summary_pag
 import 'package:capbox/features/coach/presentation/pages/coach_assign_goals_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_assign_routine_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_create_routine_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_edit_student_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_register_physical_page.dart';
+import 'package:capbox/features/coach/presentation/pages/coach_register_tutor_page.dart';
 import 'package:capbox/features/coach/presentation/widgets/coach_fight_history_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_home_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_manage_routine_page.dart';
@@ -189,6 +192,19 @@ final GoRouter appRouter = GoRouter(
       path: '/coach-fight-register',
       name: 'coach-fight-register',
       builder: (context, state) => const CoachRegisterFightPage(),
+    ),
+    GoRoute(
+      path: '/coach/edit-student',
+      builder: (context, state) => const CoachEditStudentPage(),
+    ),
+    GoRoute(
+      path: '/coach/register-tutor',
+      name: 'register-tutor',
+      builder: (context, state) => const CoachRegisterTutorPage(),
+    ),
+    GoRoute(
+      path: '/coach/register-physical',
+      builder: (context, state) => const CoachRegisterPhysicalPage(),
     ),
   ],
 );

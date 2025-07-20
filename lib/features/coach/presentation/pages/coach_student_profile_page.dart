@@ -187,7 +187,9 @@ class CoachStudentProfilePage extends StatelessWidget {
                   _grayButton('Registrar pelea(s)', onTap: () {
                     context.go('/coach-fight-register', extra: studentName);
                   }),
-                  _grayButton('Editar datos personales / tutor / físicos'),
+                  _grayButton('Editar datos personales / tutor / físicos', onTap: () {
+                    context.go('/coach/edit-student');
+                  }),
                 ],
               ),
             ),
