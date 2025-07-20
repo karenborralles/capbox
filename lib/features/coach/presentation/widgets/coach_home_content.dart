@@ -72,7 +72,7 @@ class CoachHomeContent extends StatelessWidget {
                 context,
                 'Captura de datos de alumno',
                 const Color.fromRGBO(113, 113, 113, 0.5),
-                // Aquí puedes ponerle una ruta si ya la tienes
+                route: '/coach-request-capture',
               ),
               if (pendingRequests > 0)
                 Positioned(
@@ -94,6 +94,7 @@ class CoachHomeContent extends StatelessWidget {
             context,
             'Realizar toma de pruebas',
             const Color.fromRGBO(113, 113, 113, 0.5),
+            route: '/coach-select-student-for-test',
           ),
           const SizedBox(height: 12),
           _buildStyledButton(
