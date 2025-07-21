@@ -1,3 +1,9 @@
+import 'package:capbox/features/admin/presentation/pages/admin_attendance_page.dart';
+import 'package:capbox/features/admin/presentation/pages/admin_history_page.dart';
+import 'package:capbox/features/admin/presentation/pages/admin_home_page.dart';
+import 'package:capbox/features/admin/presentation/pages/admin_manage_students_page.dart';
+import 'package:capbox/features/admin/presentation/pages/admin_profile_page.dart';
+import 'package:capbox/features/admin/presentation/pages/admin_student_profile_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_ficha_tecnica_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_history_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_metrics_page.dart';
@@ -6,6 +12,7 @@ import 'package:capbox/features/boxer/presentation/pages/boxer_summary_page.dart
 import 'package:capbox/features/boxer/presentation/pages/boxer_technique_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_timer_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_timer_summary_page.dart';
+import 'package:capbox/features/coach/domain/entities/student_model.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_assign_goals_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_assign_routine_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_create_routine_page.dart';
@@ -230,6 +237,35 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/ranking-sparrings',
       builder: (context, state) => const CoachRankingSparringsPage(), 
+    ),
+
+    //administración
+    GoRoute(
+      path: '/admin-home',
+      builder: (context, state) => const AdminHomePage(),
+    ),
+    GoRoute(
+      path: '/admin-attendance',
+      builder: (context, state) => const AdminAttendancePage(),
+    ),
+    GoRoute(
+  path: '/admin-manage-students',
+    builder: (context, state) => const AdminManageStudentsPage(),
+  ),
+  GoRoute(
+    path: '/admin/alumno/perfil',
+    builder: (context, state) {
+      final student = state.extra as Student;
+      return AdminStudentProfilePage(student: student);
+    },
+  ),
+  GoRoute(
+      path: '/admin-profile',
+      builder: (context, state) => const AdminProfilePage(),
+    ),
+    GoRoute(
+      path: '/admin-history',
+      builder: (context, state) => const AdminHistoryPage(),
     ),
   ],
 );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BoxerHeader extends StatelessWidget {
-  const BoxerHeader({super.key});
+class AdminHeader extends StatelessWidget {
+  const AdminHeader({super.key, required String name});
 
   @override
   Widget build(BuildContext context) {
