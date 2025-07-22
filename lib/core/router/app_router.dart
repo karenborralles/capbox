@@ -1,8 +1,6 @@
 import 'package:capbox/features/admin/presentation/pages/admin_attendance_page.dart';
-import 'package:capbox/features/admin/presentation/pages/admin_history_page.dart';
 import 'package:capbox/features/admin/presentation/pages/admin_home_page.dart';
 import 'package:capbox/features/admin/presentation/pages/admin_manage_students_page.dart';
-import 'package:capbox/features/admin/presentation/pages/admin_profile_page.dart';
 import 'package:capbox/features/admin/presentation/pages/admin_student_profile_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_ficha_tecnica_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_history_page.dart';
@@ -52,8 +50,6 @@ import 'package:capbox/features/auth/presentation/pages/register_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_home_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_events_page.dart';
 import 'package:capbox/features/boxer/presentation/pages/boxer_invitation_detail_page.dart';
-import 'package:capbox/features/coach/presentation/pages/coach_profile_page.dart';
-import 'package:capbox/features/coach/presentation/pages/coach_history_page.dart';
 import 'package:capbox/features/coach/presentation/pages/coach_attendance_page.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -77,14 +73,6 @@ final GoRouter appRouter = GoRouter(
     //entrenador
     GoRoute(path: '/coach-home',
       builder: (context, state) => const CoachHomePage(),
-    ),
-    GoRoute(
-      path: '/coach-profile',
-      builder: (context, state) => const CoachProfilePage(),
-    ),
-    GoRoute(
-      path: '/coach-history',
-      builder: (context, state) => const CoachHistoryPage(),
     ),
     GoRoute(
       path: '/coach-attendance',
@@ -259,13 +247,5 @@ final GoRouter appRouter = GoRouter(
       return AdminStudentProfilePage(student: student);
     },
   ),
-  GoRoute(
-      path: '/admin-profile',
-      builder: (context, state) => const AdminProfilePage(),
-    ),
-    GoRoute(
-      path: '/admin-history',
-      builder: (context, state) => const AdminHistoryPage(),
-    ),
   ],
 );

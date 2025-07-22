@@ -30,7 +30,7 @@ class _AdminManageStudentsPageState extends State<AdminManageStudentsPage> {
       ..sort((a, b) => a.name.compareTo(b.name));
 
     return Scaffold(
-      bottomNavigationBar: const AdminNavBar(currentIndex: 2),
+      bottomNavigationBar: const AdminNavBar(currentIndex: 1),
       body: Stack(
         children: [
           Positioned.fill(

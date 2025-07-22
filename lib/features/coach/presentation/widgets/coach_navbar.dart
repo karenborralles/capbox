@@ -8,38 +8,33 @@ class CoachNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      backgroundColor: Colors.black,
-      selectedItemColor: Colors.red,
-      unselectedItemColor: Colors.white,
-      currentIndex: currentIndex,
-      onTap: (index) {
-        switch (index) {
-          case 0:
-            context.go('/coach-history');
-            break;
-          case 1:
-            context.go('/coach-home');
-            break;
-          case 2:
-            context.go('/coach-profile');
-            break;
-        }
-      },
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.history),
-          label: 'Historial',
+    return BottomAppBar(
+      color: Colors.black,
+      child: SizedBox(
+        height: 60,
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              IconButton(
+                icon: Icon(
+                  Icons.home,
+                  color: currentIndex == 0 ? Colors.red : Colors.white,
+                ),
+                onPressed: () {
+                  if (currentIndex != 0) {
+                    context.go('/coach-home');
+                  }
+                },
+              ),
+              const Text(
+                'Inicio',
+                style: TextStyle(color: Colors.white, fontSize: 12),
+              ),
+            ],
+          ),
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Inicio',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: 'Perfil',
-        ),
-      ],
+      ),
     );
   }
 }

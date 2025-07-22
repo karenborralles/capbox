@@ -70,7 +70,7 @@ class _AdminAttendancePageState extends State<AdminAttendancePage> {
     final dateFormatted = DateFormat('dd/MM/yyyy').format(selectedDate);
 
     return Scaffold(
-      bottomNavigationBar: const AdminNavBar(currentIndex: 0),
+      bottomNavigationBar: const AdminNavBar(currentIndex: 1),
       body: Stack(
         children: [
           Positioned.fill(
